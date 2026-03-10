@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Моніторинг ТП 110/10 кВ</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>⚡ Система моніторингу ТП 110/10 кВ</h1>
+            <p>Статус: <span id="autoStatus">Очікування</span> | Час оновлення: <span id="lastUpdate">--:--:--</span></p>
+        </header>
+
+        <main>
+            <section class="controls">
+                <button id="updateBtn" class="btn btn-primary">Оновити зараз</button>
+                <button id="autoUpdateBtn" class="btn btn-success">Запустити автооновлення</button>
+                <button id="exportBtn" class="btn">Експорт CSV</button>
+                <button id="themeBtn" class="btn">Змінити тему</button>
+            </section>
+
+            <section class="dashboard">
+                <div class="card" id="card-0">
+                    <h3>Напруга первинна (U1)</h3>
+                    <div class="value-box"><span id="param0" class="big-number">0</span><span class="unit"> кВ</span></div>
+                    <div class="progress-bar"><div class="progress-fill"></div></div>
+                </div>
+                <div class="card" id="card-1">
+                    <h3>Напруга вторинна (U2)</h3>
+                    <div class="value-box"><span id="param1" class="big-number">0</span><span class="unit"> кВ</span></div>
+                    <div class="progress-bar"><div class="progress-fill"></div></div>
+                </div>
+                <div class="card" id="card-2">
+                    <h3>Струм навантаження (I)</h3>
+                    <div class="value-box"><span id="param2" class="big-number">0</span><span class="unit"> А</span></div>
+                    <div class="progress-bar"><div class="progress-fill"></div></div>
+                </div>
+                <div class="card" id="card-3">
+                    <h3>Температура масла (T)</h3>
+                    <div class="value-box"><span id="param3" class="big-number">0</span><span class="unit"> °C</span></div>
+                    <div class="progress-bar"><div class="progress-fill"></div></div>
+                </div>
+            </section>
+
+            <section class="card extra-requirements">
+                <h3>Додаткові вимоги (Варіант 3)</h3>
+                <div class="info-grid">
+                    <div class="info-item">Індикація РПН: <span id="rpnStatus" class="badge">--</span></div>
+                    <div class="info-item">Стан охолодження: <span id="coolStatus" class="badge">--</span></div>
+                    <div class="info-item">Рівень масла в баку: <span id="oilStatus" class="badge">--</span></div>
+                </div>
+            </section>
+
+            <section class="chart-section card">
+                <h3>Графік параметрів</h3>
+                <div style="height: 300px;">
+                    <canvas id="mainChart"></canvas>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 </p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
